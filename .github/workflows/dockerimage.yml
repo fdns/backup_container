@@ -26,5 +26,5 @@ jobs:
         echo "${GITHUB_PACKAGE_REGISTRY_TOKEN}" | docker login docker.pkg.github.com --username fdns --password-stdin
         docker push docker.pkg.github.com/${GITHUB_REPOSITORY}/release:${RELEASE_VERSION}
       env:
-        GITHUB_PACKAGE_REGISTRY_TOKEN: ${{ secrets.GITHUB_PACKAGE_REGISTRY_TOKEN }}
+        GITHUB_PACKAGE_REGISTRY_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         RELEASE_VERSION: ${{ steps.vars.outputs.tag }}
