@@ -18,6 +18,8 @@ jobs:
 
     - name: Build the Docker image
       run: docker build . --file Dockerfile --tag docker.pkg.github.com/${GITHUB_REPOSITORY}/release:${RELEASE_VERSION}
+      env:
+        RELEASE_VERSION: ${{ steps.vars.outputs.tag }}
       
     - name: Push
       run: |
